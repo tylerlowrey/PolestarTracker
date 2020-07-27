@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PolestarTracker.Core.Models
 {
-    class TrackingRecord
+    public class TrackingRecord
     {
         public int RecordId { get; set; }
         public string ProcessName { get; set; }
