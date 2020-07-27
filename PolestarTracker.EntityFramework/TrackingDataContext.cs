@@ -7,5 +7,6 @@ namespace PolestarTracker.EntityFramework
     public class TrackingDataContext
     {
         public DbSet<TrackingRecord> TrackingRecords { get; set; }
+
     }
 }
