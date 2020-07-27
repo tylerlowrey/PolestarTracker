@@ -16,7 +16,7 @@ namespace PolestarTracker.Tests
         [TestMethod]
         public void GetActiveProcessName_Does_Not_Return_Null()
         {
-
+            Assert.IsNotNull(ProcessTracker.GetActiveProcessName());
         }
     }
 }
