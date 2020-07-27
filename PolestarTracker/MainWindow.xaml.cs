@@ -13,7 +13,7 @@ namespace PolestarTracker
         public MainWindow()
         {
             InitializeComponent();
-            CurrentWindowTitle.Content = WindowTracker.GetActiveWindowTitle();
+            CurrentWindowTitle.Content = ProcessTracker.GetActiveWindowTitle();
 
             //Periodically update the currently active window title
             DispatcherTimer timer = new DispatcherTimer
@@ -21,7 +21,7 @@ namespace PolestarTracker
                 Interval = TimeSpan.FromMilliseconds(500)
             };
 
-            timer.Tick += (o, e) => { CurrentWindowTitle.Content = WindowTracker.GetActiveWindowTitle(); };
+            timer.Tick += (o, e) => { CurrentWindowTitle.Content = ProcessTracker.GetActiveWindowTitle(); };
             timer.IsEnabled = true;
 
         }
