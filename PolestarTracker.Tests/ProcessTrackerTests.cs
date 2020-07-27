@@ -11,6 +11,7 @@ namespace PolestarTracker.Tests
         public void GetActiveWindowTitle_Does_Not_Return_Null()
         {
             Assert.IsNotNull(ProcessTracker.GetActiveWindowTitle());
+            Console.WriteLine(ProcessTracker.GetActiveWindowTitle());
         }
 
         [TestMethod]
