@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolestarTracker.WPF", "Pole
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolestarTracker.Core", "PolestarTracker.Core\PolestarTracker.Core.csproj", "{7F6F6B9C-BF06-42FD-98FC-0CA377EDF481}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolestarTracker.Tests", "PolestarTracker.Tests\PolestarTracker.Tests.csproj", "{35238193-25CB-445D-BE03-E2E55BC0D199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7F6F6B9C-BF06-42FD-98FC-0CA377EDF481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6F6B9C-BF06-42FD-98FC-0CA377EDF481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6F6B9C-BF06-42FD-98FC-0CA377EDF481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35238193-25CB-445D-BE03-E2E55BC0D199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35238193-25CB-445D-BE03-E2E55BC0D199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35238193-25CB-445D-BE03-E2E55BC0D199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35238193-25CB-445D-BE03-E2E55BC0D199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
