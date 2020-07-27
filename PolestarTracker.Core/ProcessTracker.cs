@@ -14,8 +14,6 @@ namespace PolestarTracker.Core
         [DllImport("user32.dll")]
         static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
-        [DllImport("user32.dll")]
-        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
         /**
          * Adapted from: https://stackoverflow.com/questions/17345202/get-the-current-active-application-name
