@@ -15,9 +15,6 @@ namespace PolestarTracker.Core
         static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
 
-        /**
-         * Adapted from: https://stackoverflow.com/questions/17345202/get-the-current-active-application-name
-         */
         public static string GetActiveWindowTitle()
         {
             return GetActiveProcess().MainWindowTitle;
