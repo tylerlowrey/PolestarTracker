@@ -13,4 +13,8 @@
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PolestarTracker.Core\PolestarTracker.Core.csproj" />
+  </ItemGroup>
+
 </Project>
