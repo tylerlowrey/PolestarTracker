@@ -5,12 +5,18 @@ using PolestarTracker.Core;
 namespace PolestarTracker.Tests
 {
     [TestClass]
-    public class WindowTrackerTests
+    public class ProcessTrackerTests
     {
         [TestMethod]
         public void GetActiveWindowTitle_Does_Not_Return_Null()
         {
-            Assert.IsNotNull(WindowTracker.GetActiveWindowTitle());
+            Assert.IsNotNull(ProcessTracker.GetActiveWindowTitle());
+        }
+
+        [TestMethod]
+        public void GetActiveProcessName_Does_Not_Return_Null()
+        {
+
         }
     }
 }

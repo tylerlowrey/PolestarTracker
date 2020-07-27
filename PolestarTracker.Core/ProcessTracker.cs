@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PolestarTracker.Core
 {
-    public class WindowTracker
+    public class ProcessTracker
     {
 
         [DllImport("user32.dll")]
@@ -27,6 +27,11 @@ namespace PolestarTracker.Core
             {
                 return Buff.ToString();
             }
+            return null;
+        }
+
+        public static string GetActiveProcessName()
+        {
             return null;
         }
     }
