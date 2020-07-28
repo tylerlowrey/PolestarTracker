@@ -23,82 +23,88 @@
             ResizeBorderThickness="5"
         />
     </WindowChrome.WindowChrome>
-    <DockPanel LastChildFill="False" >
+    <DockPanel>
         <controls:ApplicationBar DockPanel.Dock="Top" />
-        <WrapPanel DockPanel.Dock="Top">
-            <materialDesign:Card Margin="10,5">
-                <StackPanel>
-                    <Label Content="Daily Productivity" HorizontalAlignment="Center"/>
-                    <lvc:CartesianChart Series="{Binding DailyProductivityDataCollection}" LegendLocation="Bottom" Width="400" Height="300">
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Total Time" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Applications" Labels="{Binding Labels}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                        <lvc:CartesianChart.DataTooltip>
-                            <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
-                        </lvc:CartesianChart.DataTooltip>
-                    </lvc:CartesianChart>
-                </StackPanel>
-            </materialDesign:Card>
-            <materialDesign:Card Margin="10,5">
-                <StackPanel>
-                    <Label Content="Daily Application Time" HorizontalAlignment="Center"/>
-                    <lvc:PieChart Name="DailyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationDataCollection}" 
-                                  LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="300" Height="300">
-                        <lvc:PieChart.ChartLegend>
-                            <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
-                        </lvc:PieChart.ChartLegend>
-                        <lvc:PieChart.DataTooltip>
-                            <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
-                        </lvc:PieChart.DataTooltip>
-                    </lvc:PieChart>
-                </StackPanel>
-            </materialDesign:Card>
-            <materialDesign:Card Margin="10,5">
-                <StackPanel>
-                    <Label Content="Daily Productivity" HorizontalAlignment="Center"/>
-                    <lvc:CartesianChart Series="{Binding DailyProductivityDataCollection}" LegendLocation="Bottom" Width="400" Height="300">
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Total Time" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Applications" Labels="{Binding Labels}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                        <lvc:CartesianChart.DataTooltip>
-                            <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
-                        </lvc:CartesianChart.DataTooltip>
-                    </lvc:CartesianChart>
-                </StackPanel>
-            </materialDesign:Card>
-            <materialDesign:Card Margin="10,5">
-                <StackPanel>
-                    <Label Content="Daily Application Time" HorizontalAlignment="Center"/>
-                    <lvc:PieChart Name="WeeklyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationDataCollection}" 
-                                  LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="300" Height="300">
-                        <lvc:PieChart.ChartLegend>
-                            <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
-                        </lvc:PieChart.ChartLegend>
-                        <lvc:PieChart.DataTooltip>
-                            <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
-                        </lvc:PieChart.DataTooltip>
-                    </lvc:PieChart>
-                </StackPanel>
-            </materialDesign:Card>
-        </WrapPanel>
-        <materialDesign:Card DockPanel.Dock="Top" Padding="10" Margin="10" HorizontalAlignment="Left">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Top">
             <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Active Window Title" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
-                    <Label x:Name="CurrentWindowTitle"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Active Window Process Name" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
-                    <Label x:Name="CurrentProcessName"/>
-                </StackPanel>
+                <WrapPanel>
+                    <materialDesign:Card Margin="10,5">
+                        <StackPanel>
+                            <Label Content="Daily Productivity" HorizontalAlignment="Center"/>
+                            <lvc:CartesianChart Series="{Binding DailyProductivityDataCollection}" LegendLocation="Bottom" Width="400" Height="300">
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Total Time" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Applications" Labels="{Binding Labels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.DataTooltip>
+                                    <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+                                </lvc:CartesianChart.DataTooltip>
+                            </lvc:CartesianChart>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Margin="10,5">
+                        <StackPanel>
+                            <Label Content="Daily Application Time" HorizontalAlignment="Center"/>
+                            <lvc:PieChart Name="DailyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationDataCollection}" 
+                                          LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="300" Height="300">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Margin="10,5">
+                        <StackPanel>
+                            <Label Content="Daily Productivity" HorizontalAlignment="Center"/>
+                            <lvc:CartesianChart Series="{Binding DailyProductivityDataCollection}" LegendLocation="Bottom" Width="400" Height="300">
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Total Time" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Applications" Labels="{Binding Labels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.DataTooltip>
+                                    <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+                                </lvc:CartesianChart.DataTooltip>
+                            </lvc:CartesianChart>
+                        </StackPanel>
+                    </materialDesign:Card>
+                    <materialDesign:Card Margin="10,5">
+                        <StackPanel>
+                            <Label Content="Daily Application Time" HorizontalAlignment="Center"/>
+                            <lvc:PieChart Name="WeeklyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationDataCollection}" 
+                                          LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="300" Height="300">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </StackPanel>
+                    </materialDesign:Card>
+                </WrapPanel>
+                <materialDesign:Card Padding="10" Margin="10" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Active Window Title" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
+                            <Label x:Name="CurrentWindowTitle"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Active Window Process Name" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
+                            <Label x:Name="CurrentProcessName"/>
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:Card>
             </StackPanel>
-        </materialDesign:Card>
+            
+        </ScrollViewer>
+        
         
     </DockPanel>
     
