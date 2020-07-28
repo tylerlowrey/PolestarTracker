@@ -45,15 +45,16 @@ namespace PolestarTracker.WPF.UI.Controls
                 }
                 else
                 {
+                    var (previousHeight, previousWidth, 
+                        previousTop, previousLeft) = GetPreviousWindowSizeAndPosition();
+
+                    //Catches edge case where window is not max size but still in the maximized state
+                    // TODO: Fix issue where minimizing from a maximized state will prevent double clicking 
                     if (GetParentWindow().WindowState == WindowState.Maximized)
                     {
                         GetParentWindow().WindowState = WindowState.Normal;
-                        
-                        appBar.Margin = new Thickness(0, 0, 0, 0);
+                        appBar.Margin = new Thickness(0);
                     }
-
-                    var (previousHeight, previousWidth, 
-                        previousTop, previousLeft) = GetPreviousWindowSizeAndPosition();
 
                     GetParentWindow().Height = previousHeight;
                     GetParentWindow().Width = previousWidth;

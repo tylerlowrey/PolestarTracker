@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -61,6 +62,17 @@ namespace PolestarTracker.WPF.UI.AttachedProperties
                     }
 
                     var window = parent as Window;
+
+                    if (window.WindowState == WindowState.Maximized)
+                    {
+                        if (uiElement is Grid)
+                        {
+                            var gridElement = (Grid) uiElement;
+                            gridElement.Margin = new Thickness(0);
+                        }
+                        window.WindowState = WindowState.Normal;
+                    }
+                    
                     window.DragMove();
                 }
             }
