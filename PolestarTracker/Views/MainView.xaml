@@ -10,6 +10,20 @@
              d:DesignHeight="450" d:DesignWidth="800">
      <ScrollViewer HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Top">
             <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="15, 10, 15, 10">
+                    <Button
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="MaterialDesignOutlinedButton">
+                        Settings
+                    </Button>
+                    <Button
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="MaterialDesignOutlinedButton"
+                        Margin="5,0,0,0">
+                        Help
+                    </Button>
+                </StackPanel>
+
                 <WrapPanel>
                     <materialDesign:Card Margin="10,5">
                         <StackPanel>
@@ -76,11 +90,11 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Active Window Title" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
-                            <Label x:Name="CurrentWindowTitle"/>
+                            <Label x:Name="CurrentWindowTitle" Content="{Binding CurrentWindowTitle}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Active Window Process Name" FontWeight="ExtraBold" Margin="0,0,10,0" Width="200"/>
-                            <Label x:Name="CurrentProcessName"/>
+                            <Label x:Name="CurrentProcessName" Content="{Binding CurrentProcessName}"/>
                         </StackPanel>
                     </StackPanel>
                 </materialDesign:Card>

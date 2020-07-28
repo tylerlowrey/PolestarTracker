@@ -6,7 +6,20 @@
              xmlns:local="clr-namespace:PolestarTracker.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" Margin="15, 10, 15, 10">
+            <Button
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                ToolTip="MaterialDesignOutlinedButton">
+                Home
+            </Button>
+            <Button
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                ToolTip="MaterialDesignOutlinedButton"
+                Margin="5,0,0,0">
+                Help
+            </Button>
+        </StackPanel>
+        <Label Content="Settings Page" />
+    </StackPanel>
 </UserControl>
