@@ -40,7 +40,6 @@
                 <Button x:Name="CloseButton" Click="CloseButton_OnClick">
                     <materialDesign:PackIcon Kind="WindowClose"/>
                 </Button>
-
             </StackPanel>
 
         </Grid>

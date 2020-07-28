@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Text;
 
 namespace PolestarTracker.WPF.ViewModels
 {
-    
-    public class ViewModelBase
+    class SettingsPageViewModel : ViewModelBase
     {
-        public ViewNavigator Navigator { get; set; }
     }
 }

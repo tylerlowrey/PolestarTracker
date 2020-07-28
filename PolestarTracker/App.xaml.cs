@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using PolestarTracker.WPF;
+using PolestarTracker.WPF.ViewModels;
 
 namespace PolestarTracker
 {
@@ -15,7 +17,11 @@ namespace PolestarTracker
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            ViewNavigator viewNavigator = new ViewNavigator();
+            MainViewModel defaultViewModel = new MainViewModel();
+            viewNavigator.CurrentViewModel = defaultViewModel;
             Window window = new MainWindow();
+            window.DataContext = defaultViewModel;
             window.Show();
             base.OnStartup(e);
         }
