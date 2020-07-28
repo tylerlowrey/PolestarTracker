@@ -9,8 +9,8 @@ using PolestarTracker.EntityFramework;
 namespace PolestarTracker.EntityFramework.Migrations
 {
     [DbContext(typeof(TrackingDataContext))]
-    [Migration("20200727202126_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200727220228_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
