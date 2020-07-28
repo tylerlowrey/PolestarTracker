@@ -1,8 +1,7 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PolestarTracker.Core;
 
-namespace PolestarTracker.Tests
+namespace PolestarTracker.Tests.Core
 {
     [TestClass]
     public class ProcessTrackerTests

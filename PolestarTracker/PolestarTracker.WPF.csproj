@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PolestarTracker.Core\PolestarTracker.Core.csproj" />
+    <ProjectReference Include="..\PolestarTracker.EntityFramework\PolestarTracker.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>
