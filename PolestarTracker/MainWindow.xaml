@@ -14,7 +14,14 @@
         mc:Ignorable="d"
         Title="Polestar Activity Tracker"
         MinHeight="600" MinWidth="800"
+        WindowStyle="None"
 >
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            CaptionHeight="0"
+            ResizeBorderThickness="5"
+        />
+    </WindowChrome.WindowChrome>
     <DockPanel>
         <controls:ApplicationBar DockPanel.Dock="Top" />
         <Grid DockPanel.Dock="Bottom">

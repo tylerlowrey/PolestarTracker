@@ -4,16 +4,21 @@
              xmlns:local="clr-namespace:PolestarTracker"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Application.Resources>
-        <ResourceDictionary.MergedDictionaries>
-            <!-- Global Styles -->
-            <ResourceDictionary Source="UI/Styles/Common.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Global Styles -->
+                <ResourceDictionary Source="UI/Styles/Common.xaml"/>
 
-            <!-- Material Design -->
-            <materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="{StaticResource ColorPrimary}" SecondaryColor="{StaticResource ColorSecondary}" />
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <!-- Material Design -->
+                <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="{StaticResource ColorPrimary}" SecondaryColor="{StaticResource ColorSecondary}" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
 
-            <!-- Custom Styles -->
-            <ResourceDictionary Source="UI/Styles/AppBarButton.xaml" />
-        </ResourceDictionary.MergedDictionaries>
+                <!-- Custom Styles -->
+                <ResourceDictionary Source="UI/Styles/AppBarButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- DataTemplates for connected Views with ViewModels -->
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

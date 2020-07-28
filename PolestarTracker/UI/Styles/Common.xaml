@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PolestarTracker.WPF.UI.Styles">
     <!-- Colors -->
-    <Color x:Key="ColorPrimary">#222628</Color>
-    <Color x:Key="ColorPrimaryAlt">#333840</Color>
+    <Color x:Key="ColorPrimary">#0D47A1</Color>
+    <Color x:Key="ColorPrimaryAlt">#1565C0</Color>
     <Color x:Key="ColorBackground">#FFFFFF</Color>
     <Color x:Key="ColorSecondary">#d31145</Color>
 
