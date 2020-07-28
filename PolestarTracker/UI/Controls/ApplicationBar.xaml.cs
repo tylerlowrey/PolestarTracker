@@ -34,37 +34,33 @@ namespace PolestarTracker.WPF.UI.Controls
          */
         private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Grid appBar = (Grid)FindName("AppBarGrid");
             if (e.ClickCount == 2)
             {
                 if (Width < System.Windows.SystemParameters.WorkArea.Width ||
                    GetParentWindow().Height < System.Windows.SystemParameters.WorkArea.Height)
                 {
-                    _previousWindowHeight =GetParentWindow().Height;
-                   GetParentWindow().Height = System.Windows.SystemParameters.WorkArea.Height;
-                    _previousWindowWidth =GetParentWindow().Width;
-                   GetParentWindow().Width = System.Windows.SystemParameters.WorkArea.Width;
-
-                    _previousWindowTop = GetParentWindow().Top;
-                    GetParentWindow().Top = 0;
-                    _previousWindowLeft = GetParentWindow().Left;
-                   GetParentWindow().Left = 0;
+                    RecordCurrentWindowSizeAndPosition();
+                    MaximizeWindow(appBar);
                 }
                 else
                 {
-                    double tempHeight =GetParentWindow().Height;
-                    double tempWidth =GetParentWindow().Width;
-                    double tempTop =GetParentWindow().Top;
-                    double tempLeft =GetParentWindow().Left;
+                    if (GetParentWindow().WindowState == WindowState.Maximized)
+                    {
+                        GetParentWindow().WindowState = WindowState.Normal;
+                        
+                        appBar.Margin = new Thickness(0, 0, 0, 0);
+                    }
 
-                   GetParentWindow().Height = _previousWindowHeight;
-                   GetParentWindow().Width = _previousWindowWidth;
-                   GetParentWindow().Top = _previousWindowTop;
-                   GetParentWindow().Left = _previousWindowLeft;
+                    var (previousHeight, previousWidth, 
+                        previousTop, previousLeft) = GetPreviousWindowSizeAndPosition();
 
-                    _previousWindowHeight = tempHeight;
-                    _previousWindowWidth = tempWidth;
-                    _previousWindowTop = tempTop;
-                    _previousWindowLeft = tempLeft;
+                    GetParentWindow().Height = previousHeight;
+                    GetParentWindow().Width = previousWidth;
+                    GetParentWindow().Top = previousTop;
+                    GetParentWindow().Left = previousLeft;
+
+                    RecordCurrentWindowSizeAndPosition();
                 }
             }
         }
@@ -94,6 +90,7 @@ namespace PolestarTracker.WPF.UI.Controls
 
         private void MaximizeWindow(Grid appBar)
         {
+            RecordCurrentWindowSizeAndPosition();
             PackIcon windowRestoreIcon = (PackIcon) FindName("WindowRestoreIcon");
             windowRestoreIcon.Kind = PackIconKind.WindowRestore;
             GetParentWindow().WindowState = WindowState.Maximized;
@@ -106,6 +103,31 @@ namespace PolestarTracker.WPF.UI.Controls
             windowRestoreIcon.Kind = PackIconKind.WindowMaximize;
             GetParentWindow().WindowState = WindowState.Normal;
             appBar.Margin = new Thickness(0, 0, 0, 0);
+        }
+
+        /**
+         * Stores the current window size and position in the previous window state variables
+         */
+        private void RecordCurrentWindowSizeAndPosition()
+        {
+            _previousWindowHeight = GetParentWindow().Height;
+            _previousWindowWidth = GetParentWindow().Width;
+            _previousWindowTop = GetParentWindow().Top;
+            _previousWindowLeft = GetParentWindow().Left;
+        }
+
+        /**
+         * <returns>A Tuple of doubles of the previous window size and window position
+         * in the format:(Window Height, Window Width, Window Top position, Window Left Position</returns>
+         */
+        private (double, double, double, double) GetPreviousWindowSizeAndPosition()
+        {
+            return (
+                _previousWindowHeight,
+                _previousWindowWidth,
+                _previousWindowTop,
+                _previousWindowLeft
+            );
         }
 
         private Window GetParentWindow()
