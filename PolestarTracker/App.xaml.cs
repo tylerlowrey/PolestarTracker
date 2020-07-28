@@ -19,6 +19,7 @@ namespace PolestarTracker
         {
             ViewNavigator viewNavigator = new ViewNavigator();
             MainViewModel defaultViewModel = new MainViewModel();
+            defaultViewModel.Navigator = viewNavigator;
             viewNavigator.CurrentViewModel = defaultViewModel;
             Window window = new MainWindow();
             window.DataContext = defaultViewModel;

@@ -20,9 +20,16 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- DataTemplates for connected Views with ViewModels -->
-            <DataTemplate DataType=="{x:Type viewModels:MainViewModel}">
+            <DataTemplate DataType="{x:Type viewModels:MainViewModel}">
                 <views:MainView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:SettingsPageViewModel}">
+                <views:SettingsPageView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:HelpPageViewModel}">
+                <views:HelpPageView />
+            </DataTemplate>
+
         </ResourceDictionary>
         
     </Application.Resources>
