@@ -21,7 +21,8 @@
                     <Button
                         Style="{StaticResource MaterialDesignOutlinedButton}"
                         ToolTip="MaterialDesignOutlinedButton"
-                        Margin="5,0,0,0">
+                        Margin="5,0,0,0"
+                        Command="{Binding UpdateViewCommand}" CommandParameter="{x:Static nav:ViewType.HelpPage}">
                         Help
                     </Button>
                 </StackPanel>
