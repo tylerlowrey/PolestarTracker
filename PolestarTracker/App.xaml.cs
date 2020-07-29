@@ -24,6 +24,7 @@ namespace PolestarTracker
         {
             TrackingDataContext trackingDataContext = new TrackingDataContext();
             MouseTracker mouseTracker = new MouseTracker();
+            KeyboardTracker keyboardTracker = new KeyboardTracker();
 
             
             //Set timer to record activity data every second
@@ -42,7 +43,7 @@ namespace PolestarTracker
                     Timestamp = DateTime.Now
                 };
 
-                if (mouseTracker.HasMouseMoved())
+                if (mouseTracker.HasMouseMoved() || keyboardTracker.GetTimeElapsedSinceLastKeyPress() < timer.Interval.TotalMilliseconds)
                 {
                     newTrackingRecord.Active = true;
                     trackingDataContext.Add(newTrackingRecord);
