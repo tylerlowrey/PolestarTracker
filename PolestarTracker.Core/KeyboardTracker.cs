@@ -10,9 +10,5 @@ namespace PolestarTracker.Core
     class KeyboardTracker
     {
 
-        public void SetupHook()
-        {
-            
-        }
     }
 }

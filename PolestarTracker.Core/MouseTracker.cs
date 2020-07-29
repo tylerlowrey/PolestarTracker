@@ -8,7 +8,7 @@ namespace PolestarTracker.Core
     /**
      * Adapted from: https://stackoverflow.com/questions/27133957/global-mouse-hook-in-wpf
      */
-    class MouseTracker
+    public class MouseTracker
     {
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -21,20 +21,26 @@ namespace PolestarTracker.Core
             public Int32 Y;
         };
 
-        private int _previousXPos;
-        private int _previousYPos;
+        public int PreviousXPos { get; }
+        public int PreviousYPos { get; }
 
         public MouseTracker()
         {
             var (x, y) = GetMousePosition();
-            _previousXPos = x;
-            _previousYPos = y;
+            PreviousXPos = x;
+            PreviousYPos = y;
+        }
+
+        public MouseTracker(int startingX, int startingY)
+        {
+            PreviousXPos = startingX;
+            PreviousYPos = startingY;
         }
 
         public bool HasMouseMoved()
         {
             var (currentX, currentY) = GetMousePosition();
-            return currentX == _previousXPos && currentY == _previousYPos;
+            return currentX == PreviousXPos && currentY == PreviousYPos;
         }
 
 
