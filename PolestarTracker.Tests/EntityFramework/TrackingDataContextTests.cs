@@ -28,18 +28,16 @@ namespace PolestarTracker.Tests.EntityFramework
         [TestMethod]
         public void Can_Successfully_Add_TrackingRecord_To_Database()
         {
-            using (var db = new TrackingDataTestContext())
-            {
-                TrackingRecord testRecord = new TrackingRecord { ProcessName = "example process", Timestamp = DateTime.Now};
-                db.Add(testRecord);
-                db.SaveChanges();
+            using var db = new TrackingDataTestContext();
+            var testRecord = new TrackingRecord { ProcessName = "example process", Timestamp = DateTime.Now, Active = true};
+            db.Add(testRecord);
+            db.SaveChanges();
 
-                var insertedRecord = db.TrackingRecords
-                    .OrderByDescending(tr => tr.RecordId)
-                    .FirstOrDefault();
+            var insertedRecord = db.TrackingRecords
+                .OrderByDescending(tr => tr.RecordId)
+                .FirstOrDefault();
 
-                Assert.AreEqual(testRecord, insertedRecord);
-            }
+            Assert.AreEqual(testRecord, insertedRecord);
         }
     }
 }

@@ -17,6 +17,9 @@ namespace PolestarTracker
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            //Start tracking productivity and logging it
+
+            //Code for setting up MVVM 
             ViewNavigator viewNavigator = new ViewNavigator();
             MainViewModel defaultViewModel = new MainViewModel(viewNavigator);
             viewNavigator.CurrentViewModel = defaultViewModel;

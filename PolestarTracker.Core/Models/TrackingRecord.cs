@@ -10,6 +10,7 @@ namespace PolestarTracker.Core.Models
         [Key]
         public int RecordId { get; set; }
         public string ProcessName { get; set; }
+        public bool Active { get; set; }
         public DateTime Timestamp { get; set; }
     }
 }
