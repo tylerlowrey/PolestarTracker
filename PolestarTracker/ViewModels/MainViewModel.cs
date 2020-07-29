@@ -11,6 +11,7 @@ using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Helpers;
 using LiveCharts.Wpf;
+using Microsoft.EntityFrameworkCore;
 using PolestarTracker.Core;
 using PolestarTracker.Core.Models;
 using PolestarTracker.EntityFramework;
@@ -108,6 +109,17 @@ namespace PolestarTracker.WPF.ViewModels
 
         private void UpdateChartData()
         {
+            UpdateDailyProductivityChart();
+            UpdateDailyApplicationUseChart();
+        }
+
+        private void UpdateDailyProductivityChart()
+        {
+
+        }
+
+        private void UpdateDailyApplicationUseChart()
+        {
             var updatedDailyApplicationData = new SeriesCollection();
             var listOfData = GetTrackingData();
             var listOfActiveData = listOfData.Where(item => item.Active && item.Timestamp > DateTime.Today)
@@ -115,22 +127,27 @@ namespace PolestarTracker.WPF.ViewModels
 
             //Find all unique processes
             var uniqueProcessesList = listOfActiveData.Select(item => item.ProcessName)
-                                                      .Distinct().ToList();
-            
-            uniqueProcessesList.ForEach(processName =>
+                                                      .Distinct()
+                                                      .ToList();
+
+            var uniqueProcessesGroups = listOfActiveData.GroupBy(item => item.ProcessName)
+                                                        .OrderByDescending(item => item.Count())
+                                                        .Take(10);
+
+            foreach (var processGroup in uniqueProcessesGroups)
             {
                 updatedDailyApplicationData.Add(new PieSeries
                 {
-                    Title = processName,
+                    Title = processGroup.Key,
                     Values = new ChartValues<ObservableValue>
                     {
-                        new ObservableValue(listOfActiveData
+                        new ObservableValue(processGroup
                                             .Select(item => item.ProcessName)
-                                            .Count(itemProcessName => itemProcessName == processName) / 100.0)
+                                            .Count(itemProcessName => itemProcessName == processGroup.Key) / 100.0)
                     },
                     DataLabels = true,
                 });
-            });
+            }
 
             DailyApplicationUseDataCollection = updatedDailyApplicationData;
         }

@@ -28,7 +28,7 @@
                 <WrapPanel>
                     <materialDesign:Card Margin="10,5">
                         <StackPanel>
-                            <Label Content="Daily Productivity" HorizontalAlignment="Center"/>
+                            <Label Content="Daily Productivity (Minutes)" HorizontalAlignment="Center"/>
                             <lvc:CartesianChart Series="{Binding DailyProductivityDataCollection}" LegendLocation="Bottom" Width="400" Height="300">
                                 <lvc:CartesianChart.AxisX>
                                     <lvc:Axis Title="Total Time" LabelFormatter="{Binding Formatter}"></lvc:Axis>
@@ -44,9 +44,9 @@
                     </materialDesign:Card>
                     <materialDesign:Card Margin="10,5">
                         <StackPanel>
-                            <Label Content="Daily Application Time" HorizontalAlignment="Center"/>
+                            <Label Content="Daily Application Time (Minutes)" HorizontalAlignment="Center"/>
                             <lvc:PieChart Name="DailyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationUseDataCollection}" 
-                                          LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="300" Height="300">
+                                          LegendLocation="Right" InnerRadius="100" Margin="0 15" Width="600" Height="300">
                                 <lvc:PieChart.ChartLegend>
                                     <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
                                 </lvc:PieChart.ChartLegend>
