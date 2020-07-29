@@ -22,15 +22,15 @@ namespace PolestarTracker.WPF
 
         public void Execute(object parameter)
         {
-            switch ((ViewNavigator.Views) parameter)
+            switch ((ViewType) parameter)
             {
-                case ViewNavigator.Views.Main:
+                case ViewType.Main:
                     _navigator.CurrentViewModel = new MainViewModel(_navigator);
                     break;
-                case ViewNavigator.Views.SettingsPage:
+                case ViewType.SettingsPage:
                     _navigator.CurrentViewModel = new SettingsPageViewModel(_navigator);
                     break;
-                case ViewNavigator.Views.HelpPage:
+                case ViewType.HelpPage:
                     _navigator.CurrentViewModel = new HelpPageViewModel(_navigator);
                     break;
                 default:

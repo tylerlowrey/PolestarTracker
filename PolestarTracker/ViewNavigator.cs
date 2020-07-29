@@ -7,14 +7,15 @@ using PolestarTracker.WPF.ViewModels;
 
 namespace PolestarTracker.WPF
 {
+    public enum ViewType
+    {
+        Main,
+        SettingsPage,
+        HelpPage,
+    }
+
     public class ViewNavigator : INotifyPropertyChanged
     {
-        public enum Views
-        {
-            Main,
-            SettingsPage,
-            HelpPage,
-        }
 
         private ViewModelBase _currentViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
