@@ -11,13 +11,11 @@
         <StackPanel Orientation="Horizontal" Margin="15, 10, 15, 10">
             <Button
                 Style="{StaticResource MaterialDesignOutlinedButton}"
-                ToolTip="MaterialDesignOutlinedButton"
                 Command="{Binding UpdateViewCommand}" CommandParameter="{x:Static nav:ViewType.Main}">
                 Home
             </Button>
             <Button
                 Style="{StaticResource MaterialDesignOutlinedButton}"
-                ToolTip="MaterialDesignOutlinedButton"
                 Margin="5,0,0,0"
                 Command="{Binding UpdateViewCommand}" CommandParameter="{x:Static nav:ViewType.HelpPage}">
                 Help
