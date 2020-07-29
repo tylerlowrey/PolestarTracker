@@ -4,19 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PolestarTracker.WPF.Views"
+             xmlns:nav="clr-namespace:PolestarTracker.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal" Margin="15, 10, 15, 10">
             <Button
                 Style="{StaticResource MaterialDesignOutlinedButton}"
-                ToolTip="MaterialDesignOutlinedButton">
+                ToolTip="MaterialDesignOutlinedButton"
+                Command="{Binding UpdateViewCommand}" CommandParameter="{x:Static nav:ViewType.Main}">
                 Home
             </Button>
             <Button
                 Style="{StaticResource MaterialDesignOutlinedButton}"
                 ToolTip="MaterialDesignOutlinedButton"
-                Margin="5,0,0,0">
+                Margin="5,0,0,0"
+                Command="{Binding UpdateViewCommand}" CommandParameter="{x:Static nav:ViewType.HelpPage}">
                 Help
             </Button>
         </StackPanel>
