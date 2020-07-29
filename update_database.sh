@@ -15,3 +15,5 @@ dotnet ef database update \
     --startup-project "PolestarTracker.EntityFramework"
 
 cp PolestarTracker.EntityFramework/tracking.db PolestarTracker.Tests/tracking.db
+cp PolestarTracker.EntityFramework/tracking.db PolestarTracker/bin/Release/netcoreapp3.1
+cp PolestarTracker.EntityFramework/tracking.db PolestarTracker/bin/Debug/netcoreapp3.1

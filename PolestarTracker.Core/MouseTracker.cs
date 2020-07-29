@@ -21,8 +21,8 @@ namespace PolestarTracker.Core
             public Int32 Y;
         };
 
-        public int PreviousXPos { get; }
-        public int PreviousYPos { get; }
+        public int PreviousXPos { get; private set; }
+        public int PreviousYPos { get; private set; }
 
         public MouseTracker()
         {
@@ -40,7 +40,14 @@ namespace PolestarTracker.Core
         public bool HasMouseMoved()
         {
             var (currentX, currentY) = GetMousePosition();
-            return currentX == PreviousXPos && currentY == PreviousYPos;
+            if (currentX == PreviousXPos && currentY == PreviousYPos)
+            {
+                return false;
+            }
+
+            PreviousXPos = currentX;
+            PreviousYPos = currentY;
+            return true;
         }
 
 
