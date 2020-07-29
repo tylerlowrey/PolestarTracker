@@ -30,8 +30,17 @@ namespace PolestarTracker.WPF.ViewModels
             }
         }
 
-        public SeriesCollection DailyProductivityDataCollection => _dailyProductivityDataCollection;
+        public SeriesCollection DailyProductivityDataCollection
+        {
+            get => _dailyProductivityDataCollection;
+            set
+            {
+                _dailyProductivityDataCollection = value;
+                OnPropertyChanged();
+            }
+        } 
 
+        public string[] DailyProductivityAxisLabels { get; set; }
         public ICommand UpdateViewCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -59,9 +68,9 @@ namespace PolestarTracker.WPF.ViewModels
             }
         }
 
-        private TrackingDataContext _dbContext;
+        private readonly TrackingDataContext _dbContext;
         private SeriesCollection _dailyApplicationUseDataCollection;
-        private readonly SeriesCollection _dailyProductivityDataCollection;
+        private SeriesCollection _dailyProductivityDataCollection;
 
         public MainViewModel(ViewNavigator navigator) : base(navigator)
         {
@@ -70,7 +79,8 @@ namespace PolestarTracker.WPF.ViewModels
             _dbContext = new TrackingDataContext();
 
             DailyApplicationUseDataCollection = new SeriesCollection();
-            _dailyProductivityDataCollection = new SeriesCollection();
+            DailyProductivityDataCollection = new SeriesCollection();
+            DailyProductivityAxisLabels = new[] {"Productive Time", "Unproductive Time"};
 
             DispatcherTimer dataUpdateTimer = new DispatcherTimer
             {
@@ -104,7 +114,7 @@ namespace PolestarTracker.WPF.ViewModels
 
         private IEnumerable<TrackingRecord> GetTrackingData()
         {
-            return _dbContext.TrackingRecords.AsEnumerable().ToList();
+            return _dbContext.TrackingRecords.AsEnumerable()?.ToList();
         }
 
         private void UpdateChartData()
@@ -115,7 +125,30 @@ namespace PolestarTracker.WPF.ViewModels
 
         private void UpdateDailyProductivityChart()
         {
+            var updatedDailyProductivityData = new SeriesCollection();
+            var trackingData = GetTrackingData().ToList();
 
+            // Add active minutes
+            updatedDailyProductivityData.Add(new RowSeries
+            {
+                Title = "Productive Time",
+                Values = new ChartValues<ObservableValue>
+                {
+                    new ObservableValue(trackingData.Count(item => item.Active) / 60)
+                }
+            });
+
+            // Add inactive minutes
+            updatedDailyProductivityData.Add(new RowSeries
+            {
+                Title = "Unproductive Time",
+                Values = new ChartValues<ObservableValue>
+                {
+                    new ObservableValue(trackingData.Count(item => !item.Active) / 60)
+                }
+            });
+
+            DailyProductivityDataCollection = updatedDailyProductivityData;
         }
 
         private void UpdateDailyApplicationUseChart()
@@ -143,7 +176,7 @@ namespace PolestarTracker.WPF.ViewModels
                     {
                         new ObservableValue(processGroup
                                             .Select(item => item.ProcessName)
-                                            .Count(itemProcessName => itemProcessName == processGroup.Key) / 100.0)
+                                            .Count(itemProcessName => itemProcessName == processGroup.Key) / 60)
                     },
                     DataLabels = true,
                 });
