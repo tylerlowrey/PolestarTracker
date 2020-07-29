@@ -4,14 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PolestarTracker"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:PolestarTracker.WPF.UI.Controls"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Polestar Activity Tracker"
-        MinHeight="600" MinWidth="800">
-
-    <Grid>
-        <Label x:Name="CurrentWindowTitle" Content="" Margin="10,10,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label x:Name="CurrentProcessName" Margin="0,0,10,10" 
-               HorizontalAlignment="Right" VerticalAlignment="Top" />
-
-    </Grid>
+        MinHeight="600" MinWidth="800"
+        WindowStyle="None"
+>
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            CaptionHeight="0"
+            ResizeBorderThickness="5"
+        />
+    </WindowChrome.WindowChrome>
+    <DockPanel>
+        <controls:ApplicationBar DockPanel.Dock="Top" />
+        <ContentControl Content="{Binding Navigator.CurrentViewModel}" DockPanel.Dock="Top"/>
+    </DockPanel>
+    
 </Window>
