@@ -12,19 +12,23 @@ namespace PolestarTracker.Tests.Core
         [TestMethod]
         public void MousePosition_Returns_Sensible_X_Value()
         {
-            MouseTracker mouseTracker = new MouseTracker(-100000, 0);
+            int BAD_X_VALUE = 100000;
+            MouseTracker mouseTracker = new MouseTracker(-BAD_X_VALUE, 0);
             var (currentX, _) = MouseTracker.GetMousePosition();
             Console.WriteLine(currentX);
             Assert.IsFalse(mouseTracker.PreviousXPos > currentX);
+            Assert.IsFalse(BAD_X_VALUE < mouseTracker.PreviousXPos);
         }
 
         [TestMethod]
         public void MousePosition_Returns_Sensible_Y_Value()
         {
-            MouseTracker mouseTracker = new MouseTracker(0, -100000);
+            int BAD_Y_VALUE = 100000;
+            MouseTracker mouseTracker = new MouseTracker(0, -BAD_Y_VALUE);
             var (_, currentY) = MouseTracker.GetMousePosition();
             Console.WriteLine(currentY);
             Assert.IsFalse(mouseTracker.PreviousYPos > currentY);
+            Assert.IsFalse(BAD_Y_VALUE < mouseTracker.PreviousYPos);
         }
     }
 }
