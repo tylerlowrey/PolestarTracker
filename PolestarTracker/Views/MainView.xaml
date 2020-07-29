@@ -13,7 +13,8 @@
                 <StackPanel Orientation="Horizontal" Margin="15, 10, 15, 10">
                     <Button
                         Style="{StaticResource MaterialDesignOutlinedButton}"
-                        ToolTip="MaterialDesignOutlinedButton">
+                        ToolTip="MaterialDesignOutlinedButton"
+                        Click="ButtonBase_OnClick">
                         Settings
                     </Button>
                     <Button

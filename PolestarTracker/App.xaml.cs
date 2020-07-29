@@ -18,8 +18,7 @@ namespace PolestarTracker
         protected override void OnStartup(StartupEventArgs e)
         {
             ViewNavigator viewNavigator = new ViewNavigator();
-            MainViewModel defaultViewModel = new MainViewModel();
-            defaultViewModel.Navigator = viewNavigator;
+            MainViewModel defaultViewModel = new MainViewModel(viewNavigator);
             viewNavigator.CurrentViewModel = defaultViewModel;
             Window window = new MainWindow();
             window.DataContext = defaultViewModel;

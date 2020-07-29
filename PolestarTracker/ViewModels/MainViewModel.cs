@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
 using System.Windows.Threading;
 using PolestarTracker.Core;
 
@@ -11,6 +12,8 @@ namespace PolestarTracker.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        public ICommand UpdateViewCommand { get; set; }
+
         private string _currentWindowTitle;
         private string _currentProcessName;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,8 +38,9 @@ namespace PolestarTracker.WPF.ViewModels
                 OnPropertyChanged();
             }
         }
-        public MainViewModel()
+        public MainViewModel(ViewNavigator navigator) : base(navigator)
         {
+            UpdateViewCommand = new UpdateViewCommand(Navigator);
             CurrentWindowTitle = ProcessTracker.GetActiveWindowTitle();
             CurrentProcessName = ProcessTracker.GetActiveProcessName();
 

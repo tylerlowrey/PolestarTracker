@@ -9,6 +9,13 @@ namespace PolestarTracker.WPF
 {
     public class ViewNavigator : INotifyPropertyChanged
     {
+        public enum Views
+        {
+            Main,
+            SettingsPage,
+            HelpPage,
+        }
+
         private ViewModelBase _currentViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
         public ViewModelBase CurrentViewModel
