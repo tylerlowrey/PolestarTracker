@@ -9,10 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolestarTracker.Core", "Pol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolestarTracker.Tests", "PolestarTracker.Tests\PolestarTracker.Tests.csproj", "{35238193-25CB-445D-BE03-E2E55BC0D199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolestarTracker.EntityFramework", "PolestarTracker.EntityFramework\PolestarTracker.EntityFramework.csproj", "{BF0747FF-960C-4ED3-96EF-73724F3A7219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolestarTracker.EntityFramework", "PolestarTracker.EntityFramework\PolestarTracker.EntityFramework.csproj", "{BF0747FF-960C-4ED3-96EF-73724F3A7219}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{512EFBBE-F46A-4325-B108-3201F18929BA}"
 	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 		update_database.sh = update_database.sh
 	EndProjectSection
 EndProject
