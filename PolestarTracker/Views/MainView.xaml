@@ -26,7 +26,7 @@
                 </StackPanel>
 
                 <WrapPanel>
-                    <materialDesign:Card Margin="10,5">
+                    <materialDesign:Card Margin="10,5" >
                         <StackPanel>
                             <Label Content="Daily Application Time (Minutes)" HorizontalAlignment="Center"/>
                             <lvc:PieChart Name="DailyApplicationChart" Grid.Row="1" Series="{Binding DailyApplicationUseDataCollection}" 
