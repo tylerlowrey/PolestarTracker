@@ -155,7 +155,7 @@ namespace PolestarTracker.WPF.ViewModels
         {
             var updatedDailyApplicationData = new SeriesCollection();
             var listOfData = GetTrackingData();
-            var listOfActiveData = listOfData.Where(item => item.Active && item.Timestamp > DateTime.Today)
+            var listOfActiveData = listOfData.Where(item =>  item.Timestamp > DateTime.Today)
                                              .ToList();
 
             //Find all unique processes
