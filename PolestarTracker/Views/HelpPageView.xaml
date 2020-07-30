@@ -22,13 +22,17 @@
                 Settings
             </Button>
         </StackPanel>
-        <materialDesign:Card Margin="10,5" Padding="5">
+        <materialDesign:Card Margin="10,5" Padding="5" Width="550">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="HelpRhombus"  />
-                    <Label Content="Help"/>
+                    <materialDesign:PackIcon Kind="HelpRhombus" VerticalAlignment="Center" Width="30" Height="30" />
+                    <Label Content="Help" VerticalAlignment="Center" FontWeight="ExtraBlack" FontSize="20"/>
                 </StackPanel>
-                <Label Content="If you need help with this software or find any issues, please post an issue on the GitHub repository at https://github.com/tylerlowrey/PolestarTracker/issues"></Label>
+                <Label>
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        If you need help with this software or find any issues, please post an issue on the GitHub repository at https://github.com/tylerlowrey/PolestarTracker/issues
+                    </TextBlock>
+                </Label>
             </StackPanel>
         </materialDesign:Card>
     </StackPanel>
