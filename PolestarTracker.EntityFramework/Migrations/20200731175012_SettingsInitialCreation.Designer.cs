@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PolestarTracker.EntityFramework;
 
 namespace PolestarTracker.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    partial class TrackingDataContextModelSnapshot : ModelSnapshot
+    [Migration("20200731175012_SettingsInitialCreation")]
+    partial class SettingsInitialCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

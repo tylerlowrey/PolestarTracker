@@ -22,7 +22,7 @@ namespace PolestarTracker
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            TrackingDataContext trackingDataContext = new TrackingDataContext();
+            ApplicationDataContext applicationDataContext = new ApplicationDataContext();
             MouseTracker mouseTracker = new MouseTracker();
             KeyboardTracker keyboardTracker = new KeyboardTracker();
 
@@ -46,14 +46,14 @@ namespace PolestarTracker
                 if (mouseTracker.HasMouseMoved() || keyboardTracker.GetTimeElapsedSinceLastKeyPress() < timer.Interval.TotalMilliseconds)
                 {
                     newTrackingRecord.Active = true;
-                    trackingDataContext.Add(newTrackingRecord);
+                    applicationDataContext.Add(newTrackingRecord);
                 }
                 else
                 {
-                    trackingDataContext.Add(newTrackingRecord);
+                    applicationDataContext.Add(newTrackingRecord);
                 }
 
-                trackingDataContext.SaveChanges();
+                applicationDataContext.SaveChanges();
 
             };
             timer.IsEnabled = true;
