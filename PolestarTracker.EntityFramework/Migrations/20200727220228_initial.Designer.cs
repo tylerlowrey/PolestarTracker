@@ -8,7 +8,7 @@ using PolestarTracker.EntityFramework;
 
 namespace PolestarTracker.EntityFramework.Migrations
 {
-    [DbContext(typeof(TrackingDataContext))]
+    [DbContext(typeof(ApplicationDataContext))]
     [Migration("20200727220228_initial")]
     partial class initial
     {

@@ -7,7 +7,7 @@ using PolestarTracker.EntityFramework;
 
 namespace PolestarTracker.EntityFramework.Migrations
 {
-    [DbContext(typeof(TrackingDataContext))]
+    [DbContext(typeof(ApplicationDataContext))]
     partial class TrackingDataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

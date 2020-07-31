@@ -68,7 +68,7 @@ namespace PolestarTracker.WPF.ViewModels
             }
         }
 
-        private readonly TrackingDataContext _dbContext;
+        private readonly ApplicationDataContext _dbContext;
         private SeriesCollection _dailyApplicationUseDataCollection;
         private SeriesCollection _dailyProductivityDataCollection;
 
@@ -76,7 +76,7 @@ namespace PolestarTracker.WPF.ViewModels
         {
             UpdateViewCommand = new UpdateViewCommand(Navigator);
 
-            _dbContext = new TrackingDataContext();
+            _dbContext = new ApplicationDataContext();
 
             DailyApplicationUseDataCollection = new SeriesCollection();
             DailyProductivityDataCollection = new SeriesCollection();
