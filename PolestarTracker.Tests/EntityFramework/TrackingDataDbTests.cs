@@ -13,9 +13,9 @@ using PolestarTracker.EntityFramework;
 namespace PolestarTracker.Tests.EntityFramework
 {
     [TestClass]
-    public class TrackingDataContextTests
+    public class TrackingDataDbTests
     {
-        internal class TrackingDataTestContext : TrackingDataContext
+        internal class ApplicationTestsContext : ApplicationDataContext
         {
 
             protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -28,7 +28,7 @@ namespace PolestarTracker.Tests.EntityFramework
         [TestMethod]
         public void Can_Successfully_Add_TrackingRecord_To_Database()
         {
-            using var db = new TrackingDataTestContext();
+            using var db = new ApplicationTestsContext();
             var testRecord = new TrackingRecord { ProcessName = "example process", Timestamp = DateTime.Now, Active = true};
             db.Add(testRecord);
             db.SaveChanges();

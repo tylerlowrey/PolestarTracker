@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PolestarTracker.Core.Models;
 using PolestarTracker.EntityFramework;
@@ -10,12 +11,22 @@ using PolestarTracker.EntityFramework;
 namespace PolestarTracker.Tests.EntityFramework
 {
     [TestClass]
-    public class SettingsDataContextTests
+    public class SettingsDbTests
     {
+        internal class ApplicationTestsContext : ApplicationDataContext
+        {
+
+            protected override void OnConfiguring(DbContextOptionsBuilder options)
+            {
+                options.UseSqlite("Data Source=../../../tracking.db");
+            }
+
+        }
+
         [TestMethod]
         public void Can_Successfully_Add_ApplicationFilter_To_DB()
         {
-            using var db = new SettingsDataContext();
+            using var db = new ApplicationTestsContext();
             var newApplicationFilter = new ApplicationFilter
             {
                 ProcessName = "Idle"
@@ -34,7 +45,7 @@ namespace PolestarTracker.Tests.EntityFramework
         [TestMethod]
         public void Can_Successfully_Add_ApplicationAlias_To_DB()
         {
-            using var db = new SettingsDataContext();
+            using var db = new ApplicationTestsContext();
             var newApplicationAlias = new ApplicationAlias
             {
                 Alias = "Visual Studio",
