@@ -134,7 +134,7 @@ namespace PolestarTracker.WPF.ViewModels
                 Title = "Productive Time",
                 Values = new ChartValues<ObservableValue>
                 {
-                    new ObservableValue(trackingData.Count(item => item.Active) / 60)
+                    new ObservableValue(Convert.ToDouble(Math.Truncate(100.0 * (trackingData.Count(item => item.Active) / 60.0)) / 100.0))
                 }
             });
 
@@ -144,7 +144,7 @@ namespace PolestarTracker.WPF.ViewModels
                 Title = "Unproductive Time",
                 Values = new ChartValues<ObservableValue>
                 {
-                    new ObservableValue(trackingData.Count(item => !item.Active) / 60)
+                    new ObservableValue(Convert.ToDouble(Math.Truncate(100.0 * (trackingData.Count(item => !item.Active) / 60.0)) / 100.0))
                 }
             });
 
@@ -174,9 +174,9 @@ namespace PolestarTracker.WPF.ViewModels
                     Title = processGroup.Key,
                     Values = new ChartValues<ObservableValue>
                     {
-                        new ObservableValue(processGroup
+                        new ObservableValue(Convert.ToDouble(Math.Truncate((processGroup
                                             .Select(item => item.ProcessName)
-                                            .Count(itemProcessName => itemProcessName == processGroup.Key) / 60)
+                                            .Count(itemProcessName => itemProcessName == processGroup.Key) / 60.0) * 100.0) / 100.0 ))
                     },
                     DataLabels = true,
                 });
