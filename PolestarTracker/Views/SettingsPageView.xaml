@@ -25,7 +25,22 @@
         
         <WrapPanel>
             <materialDesign:Card MinWidth="380" Margin="10,5" Padding="5">
-                <Label Content="Application Aliases"/>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Application Aliases"/>
+                    <ListView
+                        ItemsSource="{Binding ApplicationAliasesCollection}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Alias}"
+                                    Header="Alias" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding ProcessName}"
+                                    Header="ProcessName" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
             </materialDesign:Card>
             <materialDesign:Card MinWidth="380" Margin="10,5" Padding="5" >
                 <Label Content="Application Filters" />
