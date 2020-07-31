@@ -6,7 +6,7 @@ using PolestarTracker.Core.Models;
 
 namespace PolestarTracker.EntityFramework
 {
-    class SettingsDataContext : DbContext
+    public class SettingsDataContext : DbContext
     {
         public DbSet<ApplicationAlias> ApplicationAliases { get; set; }
         public DbSet<ApplicationFilter> ApplicationFilters { get; set; }
