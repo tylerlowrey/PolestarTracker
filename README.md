@@ -6,6 +6,11 @@ This is a project for my Software Development Methodology - CPSC 4720 class
 ## Build Instructions
 In order to build the application you will need a recent copy of Visual Studio. Make sure to have the .NET desktop development package installed with Visual Studio.
 
+You will also need to make sure that you have the entity framework tools for the dotnet CLI installed. You can install it by doing:
+```
+dotnet tool install --global dotnet-ef
+```
+
 This project only runs on Windows and has only been tested on Windows 10.
 
 Instructions:
