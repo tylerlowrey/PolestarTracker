@@ -21,4 +21,4 @@ Instructions:
 5) Go into the root directory of the project and run the update_database.sh file. If you do not have a bash terminal, you can use the update_database.bat file instead
 
 ## Running the program
-After following the build instructions above, you can run the program by opening the PolestarTracker.WPF.exe in Polestar/bin/Release folder.
+After following the build instructions above, you can run the program by opening the PolestarTracker.WPF.exe in PolestarTracker/bin/Release folder.
